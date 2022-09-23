@@ -4,6 +4,8 @@
 
 Simple checkbox and checkbox group components for Angular.
 <br>
+<br>
+<br>
 ![Example](https://github.com/datomarjanidze/ng-custom-checkbox/blob/main/projects/ng-checkbox/checkbox-group-example.png?raw=true)
 
 ### Installation
