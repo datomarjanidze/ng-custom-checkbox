@@ -4,6 +4,9 @@
   "author": "Dato Marjanidze <datomarjanidze10@gmail.com>",
   "license": "ISC",
   "repository": "https://github.com/datomarjanidze/ng-custom-checkbox",
+  "scripts": {
+    "build": "ng build ng-checkbox --configuration=production"
+  },
   "keywords": [
     "checkbox",
     "checkbox group"
