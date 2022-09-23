@@ -3,6 +3,7 @@
 ### Description
 
 Simple checkbox and checkbox group components for Angular.
+![Example](https://github.com/datomarjanidze/ng-custom-checkbox/blob/main/src/assets/images/examples/1-web-accessibility-examples.png?raw=true)
 
 ### Installation
 
