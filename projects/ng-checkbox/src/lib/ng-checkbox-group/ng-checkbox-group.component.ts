@@ -15,8 +15,8 @@ import { CheckboxGroupData } from './ng-checkbox-group.types';
 })
 export class NgCheckboxGroupComponent {
   @Input() checkAllEnabled = false;
-  @Input() checkAllValue = false;
   @Input() checkboxGroupData: CheckboxGroupData = [];
+  checkAllValue = false;
 
   constructor(private cd: ChangeDetectorRef) {}
 

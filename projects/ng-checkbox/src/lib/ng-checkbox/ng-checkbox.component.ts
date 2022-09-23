@@ -26,7 +26,7 @@ let uid = 0;
 })
 export class NgCheckboxComponent implements ControlValueAccessor {
   @Input() checked = false;
-  @Output() readonly checkedChange: EventEmitter<boolean> = new EventEmitter();
+  @Output() readonly checkedChange = new EventEmitter<boolean>();
   @Input() disabled = false;
   @Input() invalid = false;
   readonly uid = `app-checkbox-${++uid}`;

@@ -8,6 +8,6 @@ import { NgCheckboxGroupComponent } from './ng-checkbox-group/ng-checkbox-group.
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule],
   declarations: [NgCheckboxComponent, NgCheckboxGroupComponent],
-  exports: [NgCheckboxComponent, NgCheckboxGroupComponent],
+  exports: [NgCheckboxComponent, NgCheckboxGroupComponent, ReactiveFormsModule],
 })
 export class NgCheckboxModule {}

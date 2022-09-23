@@ -1,24 +1,140 @@
-# NgCheckbox
+## ng-custom-checkbox
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
+### Description
 
-## Code scaffolding
+Simple checkbox and checkbox group components for Angular.
 
-Run `ng generate component component-name --project ng-checkbox` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-checkbox`.
-> Note: Don't forget to add `--project ng-checkbox` or else it will be added to the default project in your `angular.json` file. 
+### Installation
 
-## Build
+```console
+npm i ng-custom-checkbox
+```
 
-Run `ng build ng-checkbox` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Usage example
 
-## Publishing
+```typescript
+import { NgCheckboxModule } from "ng-custom-checkbox";
 
-After building your library with `ng build ng-checkbox`, go to the dist folder `cd dist/ng-checkbox` and run `npm publish`.
+@NgModule({
+  imports: [NgCheckboxModule],
+})
+export class SomeModule {}
+```
 
-## Running unit tests
+```typescript
+import { CheckboxGroupData } from "ng-custom-checkbox";
 
-Run `ng test ng-checkbox` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Component({})
+export class AppComponent {
+  formGroup = new FormGroup({
+    checkbox: new FormControl(false, Validators.requiredTrue),
+  });
+  checkboxGroupData: CheckboxGroupData = [
+    {
+      id: 1,
+      checked: false,
+      label: "NYC Thin Crust",
+    },
+    {
+      id: 2,
+      checked: false,
+      label: "Chicago Deep Dish",
+    },
+    {
+      id: 3,
+      checked: false,
+      label: "Californian",
+    },
+    {
+      id: 4,
+      checked: false,
+      label: "Neapolitan",
+    },
+    {
+      id: 5,
+      checked: false,
+      label: "Detroit",
+    },
+  ];
+}
+```
 
-## Further help
+```html
+<form [formGroup]="formGroup">
+  <ng-checkbox formControlName="checkbox">Check</ng-checkbox>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  <ng-checkbox-group
+    [checkAllEnabled]="true"
+    [checkboxGroupData]="checkboxGroupData"
+  ></ng-checkbox-group>
+</form>
+```
+
+### NgCheckboxComponent specs
+
+<table>
+  <thead>
+    <tr>
+      <th>Decorator</th>
+      <th>Property Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>@Input</td>
+      <td>checked</td>
+      <td>boolean</td>
+    </tr>
+    <tr>
+      <td>@Output</td>
+      <td>checkedChange</td>
+      <td>EventEmitter<boolean></td>
+    </tr>
+    <tr>
+      <td>@Input</td>
+      <td>disabled</td>
+      <td>boolean</td>
+    </tr>
+    <tr>
+      <td>@Input</td>
+      <td>invalid</td>
+      <td>boolean</td>
+    </tr>
+  </tbody>
+</table>
+
+### NgCheckboxGroupComponent specs
+
+<table>
+  <thead>
+    <tr>
+      <th>Decorator</th>
+      <th>Property Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>@Input</td>
+      <td>checkAllEnabled</td>
+      <td>boolean</td>
+    </tr>
+    <tr>
+      <td>@Input</td>
+      <td>checkboxGroupData</td>
+      <td>CheckboxGroupData</td>
+    </tr>
+  </tbody>
+</table>
+
+### Contributing
+
+If something does not work or you want to improve the package, feel free
+to create an issue on GitHub.
+
+### License
+
+ISC
