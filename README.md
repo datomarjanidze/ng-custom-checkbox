@@ -96,7 +96,7 @@ export class SomeComponent {
     <tr>
       <td>@Output</td>
       <td>checkedChange</td>
-      <td>EventEmitter<boolean></td>
+      <td>EventEmitter&lt;boolean&gt;</td>
     </tr>
     <tr>
       <td>@Input</td>
