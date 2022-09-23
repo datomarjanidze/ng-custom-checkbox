@@ -1,27 +1,142 @@
-# NgCustomCheckbox
+## ng-custom-checkbox
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+### Description
 
-## Development server
+Simple checkbox and checkbox group components for Angular.
+<br>
+![Example](https://github.com/datomarjanidze/ng-custom-checkbox/blob/main/projects/ng-checkbox/checkbox-group-example.png?raw=true)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Installation
 
-## Code scaffolding
+```console
+npm i ng-custom-checkbox
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Usage example
 
-## Build
+```typescript
+import { NgCheckboxModule } from "ng-custom-checkbox";
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+@NgModule({
+  imports: [NgCheckboxModule],
+})
+export class SomeModule {}
+```
 
-## Running unit tests
+```typescript
+import { CheckboxGroupData } from "ng-custom-checkbox";
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Component({})
+export class AppComponent {
+  formGroup = new FormGroup({
+    checkbox: new FormControl(false, Validators.requiredTrue),
+  });
+  checkboxGroupData: CheckboxGroupData = [
+    {
+      id: 1,
+      checked: false,
+      label: "NYC Thin Crust",
+    },
+    {
+      id: 2,
+      checked: false,
+      label: "Chicago Deep Dish",
+    },
+    {
+      id: 3,
+      checked: false,
+      label: "Californian",
+    },
+    {
+      id: 4,
+      checked: false,
+      label: "Neapolitan",
+    },
+    {
+      id: 5,
+      checked: false,
+      label: "Detroit",
+    },
+  ];
+}
+```
 
-## Running end-to-end tests
+```html
+<form [formGroup]="formGroup">
+  <ng-checkbox formControlName="checkbox">Check</ng-checkbox>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  <ng-checkbox-group
+    [checkAllEnabled]="true"
+    [checkboxGroupData]="checkboxGroupData"
+  ></ng-checkbox-group>
+</form>
+```
 
-## Further help
+### NgCheckboxComponent specs
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<table>
+  <thead>
+    <tr>
+      <th>Decorator</th>
+      <th>Property Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>@Input</td>
+      <td>checked</td>
+      <td>boolean</td>
+    </tr>
+    <tr>
+      <td>@Output</td>
+      <td>checkedChange</td>
+      <td>EventEmitter<boolean></td>
+    </tr>
+    <tr>
+      <td>@Input</td>
+      <td>disabled</td>
+      <td>boolean</td>
+    </tr>
+    <tr>
+      <td>@Input</td>
+      <td>invalid</td>
+      <td>boolean</td>
+    </tr>
+  </tbody>
+</table>
+
+### NgCheckboxGroupComponent specs
+
+<table>
+  <thead>
+    <tr>
+      <th>Decorator</th>
+      <th>Property Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>@Input</td>
+      <td>checkAllEnabled</td>
+      <td>boolean</td>
+    </tr>
+    <tr>
+      <td>@Input</td>
+      <td>checkboxGroupData</td>
+      <td>CheckboxGroupData</td>
+    </tr>
+  </tbody>
+</table>
+
+### Contributing
+
+If something does not work or you want to improve the package, feel free
+to create an issue on GitHub.
+
+### License
+
+ISC
