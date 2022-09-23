@@ -1,0 +1,82 @@
+$color: rgba(0, 0, 0, 0.7);
+$invalid-color: red;
+
+%invalidStyles {
+  .box {
+    border-color: $invalid-color;
+
+    svg {
+      path {
+        fill: $invalid-color;
+      }
+    }
+  }
+
+  .label {
+    color: $invalid-color;
+  }
+}
+
+:host {
+  display: flex;
+  width: fit-content;
+
+  &.ng-dirty.ng-invalid {
+    @extend %invalidStyles;
+  }
+}
+
+label {
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  &.checked {
+  }
+
+  &.disabled {
+    .box {
+      background-color: rgba(0, 0, 0, 0.14);
+    }
+  }
+
+  &.invalid {
+    @extend %invalidStyles;
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+
+  border: 1px solid;
+  border-color: $color;
+  border-radius: 4px;
+  background-color: #fff;
+
+  input {
+    margin: 0;
+    width: 0;
+    height: 0;
+  }
+
+  svg {
+    width: 14px;
+    height: auto;
+
+    path {
+      fill: $color;
+    }
+  }
+}
+
+.label {
+  margin-left: 10px;
+
+  font-size: 17px;
+  color: $color;
+}

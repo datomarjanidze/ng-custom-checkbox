@@ -1,0 +1,12 @@
+<ng-checkbox
+  *ngIf="checkAllEnabled"
+  [(checked)]="checkAllValue"
+  (checkedChange)="checkAll()"
+  >All</ng-checkbox
+>
+<ng-checkbox
+  *ngFor="let dataItem of checkboxGroupData"
+  [(checked)]="dataItem.checked"
+>
+  {{ dataItem.label }}
+</ng-checkbox>

@@ -102,6 +102,37 @@
           }
         }
       }
+    },
+    "ng-checkbox": {
+      "projectType": "library",
+      "root": "projects/ng-checkbox",
+      "sourceRoot": "projects/ng-checkbox/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-checkbox/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-checkbox/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-checkbox/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-checkbox/src/test.ts",
+            "tsConfig": "projects/ng-checkbox/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-checkbox/karma.conf.js"
+          }
+        }
+      }
     }
   }
 }
