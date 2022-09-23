@@ -16,6 +16,7 @@ npm i ng-custom-checkbox
 ### Usage example
 
 ```typescript
+// some.module.ts
 import { NgCheckboxModule } from "ng-custom-checkbox";
 
 @NgModule({
@@ -25,10 +26,11 @@ export class SomeModule {}
 ```
 
 ```typescript
+// some.component.ts
 import { CheckboxGroupData } from "ng-custom-checkbox";
 
 @Component({})
-export class AppComponent {
+export class SomeComponent {
   formGroup = new FormGroup({
     checkbox: new FormControl(false, Validators.requiredTrue),
   });
@@ -63,6 +65,7 @@ export class AppComponent {
 ```
 
 ```html
+<!-- some.component.html -->
 <form [formGroup]="formGroup">
   <ng-checkbox formControlName="checkbox">Check</ng-checkbox>
 
